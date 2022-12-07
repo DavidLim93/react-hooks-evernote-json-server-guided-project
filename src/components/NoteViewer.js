@@ -1,11 +1,18 @@
 import React from "react";
 
-function NoteViewer() {
+function NoteViewer({ noteDetails, setEditMode }) {
+
+  const { title, body } = noteDetails
+
+  function handleSetEditModeClick() {
+    setEditMode(editMode => !editMode)
+  }
+
   return (
     <>
-      <h2>Title</h2>
-      <p>Body</p>
-      <button>Edit</button>
+      <h2>{title}</h2>
+      <p>{body}</p>
+      <button onClick={handleSetEditModeClick}>Edit</button>
     </>
   );
 }
